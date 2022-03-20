@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="../static/css/property.css">
+{% endblock %}
+
+{% block main %}
+
+<div>
+    <div class = "propItem">
+        <img class="propPhoto2" src="{{url_for('get_image',filename=property.photo)}}">
+        <div class ="propRight">
+            <h3 class = "title">{{property.title}}</h5>
+            <div class = "sidebyside">
+                <p class = "price">${{property.price}}</p>
+                <p class = "proptype">{{property.propType}}</p>
+            </div>
+            <p class = "type">{{property.desc}}</p>
+
+            <div class = "sidebyside">
+                <p class = "type">{{property.rooms}} Bedrooms</p>
+                <p class = "type">{{property.bathrooms}} Bathrooms</p>
+            </div>
+            
+            <p class = "loc">{{property.location}}</p>
+            
+            <a class="btn btn-primary" >Email Realtor</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="../static/css/properties.css">
+{% endblock %}
+
+{% block main %}
+<h1 class="page-header">Properties</h1>
+<div>
+    <ul class = "propGrid">
+        {% for prop in properties %}
+        <div class = "propItem">
+            <img class = "propPhoto" src = "{{ url_for('get_image', filename = prop.photo) }}">
+            <h5 class = "title">{{prop.title}}</h5>
+            <p class = "loc">{{prop.location}}</p>
+            <p class = "price">${{prop.price}}</p>
+            <a class="btn btn-primary long" href= "{{ url_for('getProperty',propertyid=prop.id) }}">View Property</a>
+        </div>
+        {% endfor %}
+    </ul>
+    
+</div>
+{% endblock %}
